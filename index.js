@@ -26,7 +26,12 @@ const client = new MongoClient(uri, {
 // HTTP Server & Socket.io Setup
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { origin: "*" },
+  cors: {
+    origin: [
+      "https://task-management-b6464.web.app",
+      "https://task-management-b6464.firebaseapp.com",
+    ],
+  },
 });
 
 async function run() {
